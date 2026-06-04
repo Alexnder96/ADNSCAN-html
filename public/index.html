@@ -10,24 +10,27 @@
   <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
+<main class="login-container">
+  <div class="brand-logo-aside">
+    <img src="images/logoblanco.png" alt="Logo Blanco GM Macro" />
+  </div>
+
   <section class="login-panel" aria-label="Formulario de inicio de sesión">
     <img src="images/GM_logo.png" alt="Logo GM Macro" />
     <form id="loginForm" method="POST" novalidate>
       <div class="input-icon">
         <span class="material-icons lock">person</span>
-        <input
-          type="text"
-          id="cedula"
-          name="cedula"
-          required
-          autocomplete="off"
-          placeholder="DNI"
-        />
+        <input type="text" id="cedula" name="cedula" required autocomplete="off" placeholder="DNI" />
       </div>
       <button type="submit">Ingresar</button>
     </form>
     <div id="mensaje"></div>
   </section>
+
+  <div class="brand-logo-right">
+    <img src="images/AdnScan-Logo.jpeg" alt="Logo AdnScan">
+    </div>
+</main>
 
   <script>
     const form = document.getElementById('loginForm');
