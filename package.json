@@ -1,0 +1,19 @@
+{
+  "name": "adnscan",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "��#\u0000 \u0000G\u0000M\u0000-\u0000D\u0000o\u0000c\u0000u\u0000m\u0000e\u0000n\u0000t\u0000s\u0000\r\u0000 \u0000",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "google-spreadsheet": "^3.3.0"
+  }
+
+}

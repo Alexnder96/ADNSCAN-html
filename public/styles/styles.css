@@ -1,0 +1,106 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #222;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../images/GM_Background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-panel {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+  gap: 24px;
+}
+
+.login-panel img {
+  width: 120px;
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.login-panel label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon input {
+  width: 100%;
+  padding: 12px 40px 12px 36px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-icon .material-icons.lock {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #444;
+  pointer-events: none;
+  font-size: 20px;
+}
+
+button[type="submit"] {
+  background: #f59c00;
+  color: #000;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: #db8500;
+  outline: none;
+}
+
+#mensaje {
+  color: #d32f2f;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GM Documentos</title>
+  <link rel="icon" type="image/x-icon" href="images/GM_icon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <section class="login-panel" aria-label="Formulario de inicio de sesión">
+    <img src="images/GM_logo.png" alt="Logo GM Macro" />
+    <form id="loginForm" method="POST" novalidate>
+      <div class="input-icon">
+        <span class="material-icons lock">person</span>
+        <input
+          type="text"
+          id="cedula"
+          name="cedula"
+          required
+          autocomplete="off"
+          placeholder="DNI"
+        />
+      </div>
+      <button type="submit">Ingresar</button>
+    </form>
+    <div id="mensaje"></div>
+  </section>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const mensajeDiv = document.getElementById('mensaje');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      mensajeDiv.textContent = '';
+      mensajeDiv.style.display = 'none';
+
+      const cedula = document.getElementById('cedula').value.trim();
+
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `cedula=${encodeURIComponent(cedula)}`
+        });
+
+        const data = await response.json();
+
+        if (data.enlace) {
+          window.location.href = data.enlace;
+        } else {
+          mensajeDiv.textContent = 'No se encontró la cédula.';
+          mensajeDiv.style.display = 'block';
+        }
+      } catch (error) {
+        mensajeDiv.textContent = 'Error al procesar la solicitud.';
+        mensajeDiv.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
