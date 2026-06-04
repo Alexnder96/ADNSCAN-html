@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. ESTILOS GENERALES Y BASE
+   1. ESTILOS GENERALES Y BASE (PC)
    ========================================================================== */
 html, body {
   height: 100%;
@@ -14,14 +14,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* --- AJUSTE DE FONDO POR DEFECTO (PC) --- */
   background: url('../images/GM_Background.jpg');
-  background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;             /* No deforma la imagen */
+  background-position: center bottom; /* Fija la base de la imagen abajo */
 }
 
 /* ==========================================================================
-   2. CONTENEDOR PRINCIPAL 
+   2. CONTENEDOR PRINCIPAL (GRID EN 3 COLUMNAS PARA PC)
    ========================================================================== */
 .login-container {
   display: grid;
@@ -29,13 +31,13 @@ body {
   align-items: center;         
   justify-items: center;       
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0 40px;
-  gap: 20px; /* espacio de seguridad entre las columnas */
+  gap: 20px; 
   box-sizing: border-box;
 }
 
-/* --- Columna Izquierda: Logo Macro --- */
+/* --- Columna Izquierda: Logo Blanco --- */
 .brand-logo-aside {
   display: flex;
   flex-direction: column;
@@ -46,7 +48,7 @@ body {
 
 .brand-logo-aside img {
   width: 100%;
-  max-width: 340px; /* Tamaño máximo en pantallas grandes */
+  max-width: 310px; 
   height: auto;
   display: block;
 }
@@ -65,11 +67,11 @@ body {
   max-width: 220px; 
   height: auto;
   display: block;
-  border-radius: 12px;
+  border-radius: 12px; /* Bordes redondeados para AdnScan */
 }
 
 /* ==========================================================================
-   3. PANEL DE INICIO DE SESIÓN
+   3. PANEL DE INICIO DE SESIÓN (TARJETA BLANCA Y FORMULARIO)
    ========================================================================== */
 .login-panel {
   background: #f7f7f7;
@@ -160,33 +162,86 @@ button[type="submit"]:focus {
 }
 
 /* ==========================================================================
-   4. DISEÑO RESPONSIVO 
+   4. DISEÑO RESPONSIVO MÓVIL (SIN SCROLL, FONDO COMPLETO EN ALTO)
    ========================================================================== */
-@media (max-width: 1100px) { 
-  .login-container {
-    grid-template-columns: 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
-    height: auto; 
-    min-height: 100vh; 
-    gap: 15px; 
-    padding: 20px;
+@media (max-width: 1100px) {
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background: url('../images/GM_Background.jpg');
+    background-repeat: no-repeat;
+    background-size: auto 100dvh;
+    background-position: center center;
+    background-color: #000;
   }
 
-  body {
-    background-size: cover;
-    background-position: center bottom;
+  .login-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr 0.8fr 1fr;
+
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+
+    gap: 12px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .brand-logo-aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+  }
+
+  .brand-logo-aside img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
   }
 
   .login-panel {
-    width: 80%; 
-    max-width: 340px; 
+    width: 90%;
+    max-width: 320px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    gap: 14px;
   }
-  
-  .brand-logo-aside img {
-    max-width: 200px; 
+
+  .login-panel img {
+    width: 85px;
+    margin-bottom: 2px;
+  }
+
+  form {
+    gap: 10px;
+  }
+
+  button[type="submit"] {
+    padding: 11px 0;
+  }
+
+  .brand-logo-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 40px; 
   }
 
   .brand-logo-right img {
-    max-width: 160px; 
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    display: block;
   }
 }
